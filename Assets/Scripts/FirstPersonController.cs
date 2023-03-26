@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Net.Http;
+using System;
+using UnityEngine;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
 #endif
@@ -108,7 +110,9 @@ namespace StarterAssets
 			// reset our timeouts on start
 			_jumpTimeoutDelta = JumpTimeout;
 			_fallTimeoutDelta = FallTimeout;
-		}
+			GetAPI();
+
+        }
 
 		private void Update()
 		{
@@ -116,6 +120,23 @@ namespace StarterAssets
 			GroundedCheck();
 			Move();
 		}
+	private async void GetAPI()
+		{
+            using (var httpClient = new HttpClient())
+            {
+                var response = await httpClient.GetAsync("https://jsonplaceholder.typicode.com/posts/1");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var responseBody = await response.Content.ReadAsStringAsync();
+                    print(responseBody);
+                }
+                else
+                {
+                    print($"Error: {response.StatusCode}");
+                }
+            }
+        }
 
 		private void LateUpdate()
 		{
@@ -149,6 +170,11 @@ namespace StarterAssets
 				// rotate the player left and right
 				transform.Rotate(Vector3.up * _rotationVelocity);
 			}
+		}
+
+		private void Inventory()
+		{
+			print("works");
 		}
 
 		private void Move()
