@@ -110,7 +110,6 @@ namespace StarterAssets
 			// reset our timeouts on start
 			_jumpTimeoutDelta = JumpTimeout;
 			_fallTimeoutDelta = FallTimeout;
-			GetAPI();
 
         }
 
@@ -120,23 +119,6 @@ namespace StarterAssets
 			GroundedCheck();
 			Move();
 		}
-	private async void GetAPI()
-		{
-            using (var httpClient = new HttpClient())
-            {
-                var response = await httpClient.GetAsync("https://jsonplaceholder.typicode.com/posts/1");
-
-                if (response.IsSuccessStatusCode)
-                {
-                    var responseBody = await response.Content.ReadAsStringAsync();
-                    print(responseBody);
-                }
-                else
-                {
-                    print($"Error: {response.StatusCode}");
-                }
-            }
-        }
 
 		private void LateUpdate()
 		{
