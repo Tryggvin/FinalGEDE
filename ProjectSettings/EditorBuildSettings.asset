@@ -5,12 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/Playground.unity
-    guid: 707acc8dffb72b144bb1ffbe1c965f3d
   - enabled: 1
     path: Assets/Scenes/Tryggvi/MainMenu.unity
     guid: 6b4a28d78e4110c47b129a32fb2836f3
+  - enabled: 1
+    path: Assets/Scenes/Playground.unity
+    guid: 707acc8dffb72b144bb1ffbe1c965f3d
   - enabled: 1
     path: Assets/Scenes/Tryggvi/Test-T.unity
     guid: 286c3ee56e97bcd469ec35bc3d49d30f

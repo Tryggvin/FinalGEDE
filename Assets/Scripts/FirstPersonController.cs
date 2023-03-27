@@ -115,14 +115,21 @@ namespace StarterAssets
 
 		private void Update()
 		{
-			JumpAndGravity();
-			GroundedCheck();
-			Move();
+			if (GameManager.instance.isInInventory)
+			{
+                JumpAndGravity();
+                GroundedCheck();
+                Move();
+            }
 		}
 
 		private void LateUpdate()
 		{
-			CameraRotation();
+            if (GameManager.instance.isInInventory)
+			{
+                CameraRotation();
+            }
+                
 		}
 
 		private void GroundedCheck()

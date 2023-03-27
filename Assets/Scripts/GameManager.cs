@@ -6,6 +6,9 @@ public class GameManager : MonoBehaviour
 {
 
     public static GameManager instance = null;
+    public Account currentAccount;
+    public Inventory currentInventory;
+    public bool isInInventory = false;
 
     public int Id = 0;
     public int score = 0;
